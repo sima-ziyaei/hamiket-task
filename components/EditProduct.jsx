@@ -50,7 +50,7 @@ function EditProduct({ id, currentPage, limit }) {
             <BsX onClick={() => setIsOpen(false)} className=" text-2xl cursor-pointer text-gray-500" />
             <div className=" font-bold text-3xl text-gray-500">
 
-             edit
+             ویرایش
             </div>
             <i/>
           </div>
@@ -69,7 +69,7 @@ function EditProduct({ id, currentPage, limit }) {
             }}
             className="mt-16 bg-gray-500 text-white font-bold text-xl py-2 w-[40%] rounded-lg"
           >
-           edit
+           ویرایش
           </button>
         </div>
       </Modal>
