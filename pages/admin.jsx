@@ -31,7 +31,7 @@ function admin() {
     <div className="flex justify-center items-center w-[100%] h-[600px] ">
       <form
         onSubmit={formik.handleSubmit}
-        className="border w-[30%] h-[400px] border-[#d2d2d3] rounded-lg flex items-center  flex-col"
+        className="border w-[30%] h-[500px] border-[#d2d2d3] rounded-lg flex items-center justify-center flex-col"
       >
         <Logo src="/logo-siah.png" width={100} height={80} />
         <input
@@ -43,9 +43,10 @@ function admin() {
           placeholder=" نام کاربری "
           className="pr-2 mt-10 border border-[#57C4D0] rounded h-[50px] w-[70%] "
         />
+        <div className="h-[20px] text-start end w-[70%]">
         {formik.errors.userName && (
-          <div className="pt-3 text-[#FFB200]">{formik.errors.userName}</div>
-        )}
+          <div className="pt-3  text-[#FFB200]">{formik.errors.userName}</div>
+        )}</div>
         <div className=" mt-10 w-[100%]  flex items-center justify-center relative flex-col ">
           {show ? (
             <AiFillEyeInvisible
@@ -68,16 +69,16 @@ function admin() {
             className="pr-2 pl-1 box-border border border-[#57C4D0] rounded h-[50px] w-[70%] "
           />
         </div>
+        <div className="h-[20px] text-start end w-[70%]">
           {formik.errors.password && (
             <div className="pt-3 text-[#FFB200] ">{formik.errors.password}</div>
-          )}
+          )}</div>
         <button
           type="submit"
           onClick={handleChange}
-          className="mt-10 w-[70%] bg-[#57C4D0] rounded h-[50px] text-white font-semibold text-xl hover:bg-[#57C4D0]"
+          className="mt-10 w-[70%] bg-[#57C4D0] rounded h-[50px] text-white font-semibold text-xl hover:bg-[#20b5c5]"
         >
-          {" "}
-          ورود{" "}
+          ورود
         </button>
       </form>
     </div>
