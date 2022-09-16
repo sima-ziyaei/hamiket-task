@@ -3,9 +3,10 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProduct } from "../redux/slices/productSlice";
 import { useEffect, useState } from "react";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Pagination from "../components/Pagination";
 import { useRouter } from "next/router";
+import EditProduct from "../components/EditProduct";
+import DeleteProduct from "../components/DeleteProduct";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -44,8 +45,8 @@ export default function Home() {
             <img src={el.url} className="w-[100%] h-[200px] rounded " />
             <div className="text-center mt-2 h-[40px] text-[#57C4D0]"> {el.title} </div>
             <div className="flex mb-3 mt-7 text-[#FFB200] justify-around items-center h-[20px] w-[100%] ">
-              <FaEdit className="ml-[22%] text-lg cursor-pointer"/>
-              <FaTrashAlt className="cursor-pointer"/>
+            <EditProduct id={el.id} currentPage={currentPage} limit={limit}/>
+              <DeleteProduct id={el.id} currentPage={currentPage} limit={limit}/>
             </div>
           </div>
         );
