@@ -57,7 +57,7 @@ function EditProduct({ id, currentPage, limit }) {
           <input
             name="title"
             type="text"
-            value={selectedProduct.title}
+            // value={selectedProduct.title}
             onChange={handleChange}
             className="w-[80%] h-[30px] border-2 mt-12 rounded border-black"
           />

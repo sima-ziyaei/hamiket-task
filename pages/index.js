@@ -7,6 +7,7 @@ import Pagination from "../components/Pagination";
 import { useRouter } from "next/router";
 import EditProduct from "../components/EditProduct";
 import DeleteProduct from "../components/DeleteProduct";
+import Header from "../components/Header";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center w-[100%]">
+      <Header />
     <div className="grid grid-cols-5 gap-12 mx-10 my-10">
       {products.map((el) => {
         return (
