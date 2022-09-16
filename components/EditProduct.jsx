@@ -43,33 +43,33 @@ function EditProduct({ id, currentPage, limit }) {
       />
       <Modal
         isOpen={isOpen}
-        className="w-[35%] absolute top-[30%] left-[30%] h-[45%] bg-white shadow-md rounded-lg p-3"
+        className="w-[35%] absolute top-[30%] left-[30%] h-[50%] bg-white shadow-md rounded-lg p-3 outline-none"
       >
-        <div className="flex flex-col">
-          <div className="flex justify-between">
-            <div className="border-b-2 border-black font-bold tex-xl">
+        <div className="flex flex-col items-center">
+          <div className="flex w-full justify-between">
+            <BsX onClick={() => setIsOpen(false)} className=" text-2xl cursor-pointer text-gray-500" />
+            <div className=" font-bold text-3xl text-gray-500">
 
-              ویرایش نام
+             edit
             </div>
-            <BsX onClick={() => setIsOpen(false)} className=" text-xl cursor-pointer" />
+            <i/>
           </div>
 
           <input
             name="title"
             type="text"
-            // value={selectedProduct.title}
+            value={selectedProduct ? selectedProduct.title : ' '}
             onChange={handleChange}
-            className="w-[80%] h-[30px] border-2 mt-12 rounded border-black"
+            className="w-[80%] h-[30px] border p-5 mt-12 rounded border-gray-400 text-xl outline-none text-gray-500"
           />
           <button
             onClick={() => {
               sendProduct();
               setIsOpen(false);
             }}
-            className="mt-16 bg-[#57C4D0] text-white font-bold text-xl py-2 w-[40%] rounded-lg"
+            className="mt-16 bg-gray-500 text-white font-bold text-xl py-2 w-[40%] rounded-lg"
           >
-            {" "}
-            ویرایش{" "}
+           edit
           </button>
         </div>
       </Modal>

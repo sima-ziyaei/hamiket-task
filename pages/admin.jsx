@@ -1,19 +1,36 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Logo from "next/image";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import {setUserName, setPassword, setIsLoggedIn} from '../redux/slices/userSlice';
+import { useDispatch, useSelector } from "react-redux";
 
 function admin() {
+  const router = useRouter();
+  const userName = useSelector((state) => state.user.userName);
+  const [submitted, setSubmitted] = useState(false);
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
+
+
   const formik = useFormik({
     initialValues: {
       userName: "",
       password: "",
     },
     onSubmit: () => {
-      setMessage("Form submitted");
-      setSubmitted(true);
+       setSubmitted(true);
+       if(submitted){
+        router.push('/');
+  
+      console.log(userName);
+        dispatch(setUserName(formik.values.userName))
+        dispatch(setPassword(formik.values.password))
+        dispatch(setIsLoggedIn(true))
+      }
+    
     },
     validationSchema: yup.object({
       userName: yup.string().trim().required(" نام کاربری اجباری است "),
@@ -24,9 +41,7 @@ function admin() {
     }),
   });
 
-  const handleChange = (e) => {
-    e.preventDefault();
-  };
+ 
   return (
     <div className="flex justify-center items-center w-[100%] h-[600px] ">
       <form
@@ -75,7 +90,7 @@ function admin() {
           )}</div>
         <button
           type="submit"
-          onClick={handleChange}
+
           className="mt-10 w-[70%] bg-[#57C4D0] rounded h-[50px] text-white font-semibold text-xl hover:bg-[#20b5c5]"
         >
           ورود

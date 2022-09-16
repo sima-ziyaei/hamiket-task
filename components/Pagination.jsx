@@ -1,18 +1,17 @@
 import ReactPaginate from "react-paginate";
 import { IoArrowRedoSharp } from "react-icons/io5";
 import { IoArrowUndoSharp } from "react-icons/io5";
-import { useEffect } from "react";
 import { useCallback } from "react";
 
 
-function Pagination({limit,currentPage, getProducts, total}) {
+function Pagination({limit,currentPage, getProducts, total, searchValue}) {
   const page = ' page';
 
 
 const handlePageClick = useCallback((data) => {
   currentPage = data.selected + 1;
     getProducts(currentPage)
-}, [currentPage]);
+}, [currentPage, searchValue, total]);
   
   return (
     <div>
@@ -20,12 +19,11 @@ const handlePageClick = useCallback((data) => {
         previousLabel={<IoArrowUndoSharp />}
         nextLabel={<IoArrowRedoSharp />}
         breakLabel={"..."}
-        // pageCount={6}
         pageCount={Math.ceil(total/limit)}
         marginPagesDisplayed={1}
         pageRangeDisplayed={1}
         onPageChange={handlePageClick}
-        containerClassName={"flex flex-row-reverse mt-24 mb-36 rtl"}
+        containerClassName={"flex flex-row-reverse mt-24 mb-12 rtl"}
         pageClassName={
           "border-2 border-[#57C4D0]  mr-3 pt-2 rounded-full h-[55px] w-[55px] cursor-pointer text-center font-bold text-[#57C4D0] text-2xl hover:bg-[#57C4D0] hover:text-[#fff]"
         }
